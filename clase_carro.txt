@@ -1,0 +1,24 @@
+public class carro {
+    String modelo;
+    int fecha;
+
+
+    public carro(String modelo, int fecha ){
+        this.modelo=modelo;
+        this.fecha=fecha;
+    }
+    public void movimiento( int velocidad){
+
+        if (velocidad>50) {
+            System.out.println(this.modelo+this.fecha+" El vehiculo es multado");
+        } 
+        else{
+            System.out.println(this.modelo+this.fecha+ " El vehiculo no es multado");
+        }
+    }
+    public static void main(String[] args) {
+        carro c1 =new carro("Toyota ",2019);//instancia=dar vida
+        c1.movimiento(50);
+
+
+    }
