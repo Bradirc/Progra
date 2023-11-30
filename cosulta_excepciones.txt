@@ -1,0 +1,40 @@
+EXCEPCIONES EN JAVA
+
+Java dispone de un mecanismo de capturar (catch) ciertos tipos de errores que solo pueden ser detectados en tiempo de ejecución del programa.
+
+Los ejemplos más comunes que podemos nombrar de excepciones:
+
+Tratar de convertir a entero un String que no contiene valores numéricos.
+Tratar de dividir por cero.
+Abrir un archivo de texto inexistente o que se encuentra bloqueado por otra aplicación.
+Conectar con un servidor de bases de datos que no se encuentra activo.
+Acceder a subíndices de vectores y matrices fuera de rango.
+La captura de excepciones nos permite crear programas mucho más robustos y tolerante a fallas que ocurren en escasas situaciones, 
+pero en caso que se presenten disponemos de un algoritmo alternativo para reaccionar a dicha situación evitando que el programa finalice su ejecución.
+
+Ejemplo: 
+
+public class CuadradoNumero {
+    public static void main(String[] ar) {
+        Scanner teclado = new Scanner(System.in);
+        int num;
+        try {
+            System.out.print("Ingrese un valor entero:");
+            num = teclado.nextInt();
+            int cuadrado = num * num;
+            System.out.print("El cuadrado de " + num + " es " + cuadrado);
+        } catch (InputMismatchException ex) {
+            System.out.println("Debe ingresar obligatoriamente un número entero.");
+        }
+    }
+}
+
+Si ejecutamos esta variante de programa, el pedido de la carga del entero no finalizará hasta que lo ingrese.
+
+lo que nos muestra en pantalla:
+Ingrese un valor entero: hola 
+Debe ingresar obligatoriamente un numero entero. 
+Ingrese un numero entero: mundo 
+Debe ingresar obligatoriamente un numero entero
+Ingrese un valor entero: 5 
+El cuadrado de 5 es 25
